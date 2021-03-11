@@ -58,31 +58,31 @@ Devemos criar um container para rodar a aplicação Quarkus de modo nativo na JV
 
 2. Navegue até a pasta do projeto `balance-service` e execute a sequência de comandos abaixo:
 
-   1.1. Digite o comando abaixo para construir o container:
+   2.1. Digite o comando abaixo para construir o container:
 
     ```shell
     mvn package -Pnative -Dquarkus.native.container-build=true
     ```
 
-   1.2. Digite o comando abaixo para fazer o *build* da imagem:
+   2.2. Digite o comando abaixo para fazer o *build* da imagem:
 
    ```shell
    docker build -f src/main/docker/Dockerfile.native -t moduscreate/quarkus-balance-service:v1 .
    ```
 
-   1.3. Digite o comando abaixo para executar o container:
+   2.3. Digite o comando abaixo para executar o container:
 
    ```shell
    docker run -i --rm -p 8080:8080 moduscreate/quarkus-balance-service:v1
    ```
 
-   1.4. Fazer o *push* da imagem para o registro de containers da AWS:
+   2.4. Fazer o *push* da imagem para o registro de containers da AWS:
 
    ```shell
    docker push moduscreate/quarkus-balance-service:v1
    ```
 
-   1.5. Fazer o deploy da aplicação no *cluster* ***kubernetes***:
+   2.5. Fazer o deploy da aplicação no *cluster* ***kubernetes***:
 
    ```shell
    kubectl apply -f src/main/kubefiles/deployment.yml
